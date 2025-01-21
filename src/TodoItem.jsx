@@ -11,16 +11,17 @@ export default function TodoItem({ list, doneFunc, deleteFunc }) {
     }
   }
   const listItems = list.map((item) => (
-    <li key={item.id}>
-      <p>
-        <b>{item.title}</b>
-      </p>
+    <li key={item.id} className="listItem">
+      {" Id: " + item.id + " "}
+      <b>{item.title}</b>
+      {" Done: " + item.done.toString() + " "}
       {chooseIcon(item.done)}
       <button onClick={() => updateDone(item.id)}>Done?</button>
       <button
         onClick={() => {
           deleteItem(item.id);
         }}
+        className="deleteButton"
       >
         Delete
       </button>
